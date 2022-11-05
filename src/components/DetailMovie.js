@@ -26,10 +26,10 @@ export default function BasicModal(props) {
   const { id } = useParams();
 
   React.useEffect(() => {
-    getVideo();
-  }, []);
+    getVideo(id);
+  }, [id]);
 
-  const getVideo = () => {
+  const getVideo = (id) => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/movie/${id}/videos`, {
         params: {
@@ -47,9 +47,9 @@ export default function BasicModal(props) {
       <Button
         onClick={handleOpen}
         variant="contained"
-        sx={{ p: 1, borderRadius: 8, width: "150px", mt: 1 }}
+        sx={{ p: 1, borderRadius: 8, width: "150px", mt: 1, mb: 3 }}
       >
-        Watch <PlayCircleOutlineIcon sx={{ ml: 1 }} />
+        Trailer <PlayCircleOutlineIcon sx={{ ml: 1 }} />
       </Button>
       <Modal
         open={open}

@@ -4,7 +4,8 @@ import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import iceAge from "../assets/iceback.jpg";
 import "../styles/styles.css";
-import ListMovies from "./ListMovies";
+import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -36,10 +37,17 @@ const Hero = () => {
           >
             My List <PlaylistAddIcon sx={{ ml: 1 }} />
           </Button>
+          <Link to="/list" style={{ textDecoration: "none" }}>
+            <Button
+              variant="contained"
+              sx={{ p: 1, borderRadius: 8, width: "150px", mt: 1, ml: 1 }}
+            >
+              List Movies <FormatListBulletedIcon sx={{ ml: 1 }} />
+            </Button>
+          </Link>
         </Grid>
         <Grid item sm={8}></Grid>
       </Grid>
-      <ListMovies />
     </Container>
   );
 };

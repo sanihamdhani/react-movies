@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { List } from "@mui/material";
+import { Grid, List } from "@mui/material";
+
+import { Card, CardMedia } from "@mui/material";
 import person from "../assets/person.jpg";
 
 const Cast = () => {
@@ -25,24 +27,35 @@ const Cast = () => {
   };
 
   return (
-    <List className="cast">
-      {cast.map((cas) => {
-        return (
-          <div key={cas.id}>
-            {cas.profile_path ? (
-              <img
-                src={`${process.env.REACT_APP_IMG_URL}/${cas.profile_path}`}
-                height="1000"
-                alt="Actor poster"
-              ></img>
-            ) : (
-              <img src={person} alt="Actor poster"></img>
-            )}
+    <List>
+      <h1>CAST</h1>
+      <Grid className="list">
+        {cast.map((cas) => {
+          return (
+            <Grid key={cas.id} textAlign="center">
+              <Card sx={{ maxWidth: 345, height: "250px", width: "200px" }}>
+                {cas.profile_path ? (
+                  <CardMedia
+                    component="img"
+                    height="200"
+                    image={`${process.env.REACT_APP_IMG_URL}/${cas.profile_path}`}
+                    alt="Poster"
+                  />
+                ) : (
+                  <CardMedia
+                    component="img"
+                    height="200"
+                    image={person}
+                    alt="Poster"
+                  />
+                )}
 
-            <p>{cas.name}</p>
-          </div>
-        );
-      })}
+                <p>{cas.name}</p>
+              </Card>
+            </Grid>
+          );
+        })}
+      </Grid>
     </List>
   );
 };

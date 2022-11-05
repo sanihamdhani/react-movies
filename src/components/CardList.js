@@ -23,13 +23,13 @@ export default function MediaCard(props) {
         </Typography>
         <span>
           <BasicRating vote={props.vote} />
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h6" component="div">
             {props.vote}
           </Typography>
         </span>
       </CardContent>
       <CardActions>
-        <Link to={`/detail/${props.id}`}>
+        <Link to={`/detail/${props.id}`} style={{ textDecoration: "none" }}>
           <Button size="small">Detail</Button>
         </Link>
       </CardActions>

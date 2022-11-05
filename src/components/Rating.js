@@ -5,7 +5,7 @@ import { Stack } from "@mui/material";
 
 export default function BasicRating(props) {
   return (
-    <Stack spacing={1}>
+    <Stack spacing={1} sx={{ mt: 0.5 }}>
       <Rating
         name="half-rating-read"
         value={props.vote}

@@ -37,22 +37,21 @@ const DevDetail = () => {
               alt="movies-detail"
             ></img>
           </Grid>
-          <Grid sm={6}>
+          <Grid sm={6} sx={{ mt: 10 }}>
             <h1>{list.title}</h1>
             <p>{list.overview}</p>
-            <p>{list.popularity}</p>
             <p>{list.gendres}</p>
 
-            <StarIcon sx={{ color: "#FDCC0D" }} />
-
-            <p>{Math.floor(list.vote_average).toFixed(1)}</p>
+            <section>
+              <StarIcon sx={{ color: "#FDCC0D", mt: 1.5 }} />
+              <p>{Math.floor(list.vote_average).toFixed(1)}</p>
+            </section>
 
             <BasicModal poster={list.poster_path} />
-
-            <Cast />
           </Grid>
         </Grid>
       </Card>
+      <Cast />
     </Container>
   );
 };

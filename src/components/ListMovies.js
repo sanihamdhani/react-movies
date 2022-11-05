@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import Popular from "./Popular";
 import "../styles/styles.css";
-import { Container } from "@mui/material";
+import { List } from "@mui/material";
 import MediaCard from "./CardList";
 import { Grid } from "@mui/material";
 
@@ -26,26 +26,15 @@ const ListMovies = () => {
   }, []);
 
   return (
-    <Container className="list">
-      <h1>MOVIES YOU MUST WATCH</h1>
+    <List className="lis">
+      <h1>MOVIES TOP RATED</h1>
 
-      <Grid
-        container
-        spacing={{ xs: 2, md: 3 }}
-        columns={{ xs: 4, sm: 8, md: 12 }}
-      >
+      <Popular />
+      <h1>MOVIES YOU MUST WATCH</h1>
+      <Grid className="list">
         {list.map((lis, index) => {
           return (
-            <Grid
-              item
-              xs={2}
-              sm={2}
-              md={2}
-              key={index}
-              sx={{ ml: 3 }}
-              justifyContent="center"
-              whiteSpace="nowrap"
-            >
+            <Grid whiteSpace="nowrap">
               <MediaCard
                 key={index}
                 title={lis.title}
@@ -59,7 +48,7 @@ const ListMovies = () => {
           );
         })}
       </Grid>
-    </Container>
+    </List>
   );
 };
 
