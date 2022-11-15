@@ -16,4 +16,4 @@ You may also see any lint errors in the console.
 
 
 ### `Link`
-movies-tmdb-api.netlify.app
+https://movies-tmdb-api.netlify.app/
